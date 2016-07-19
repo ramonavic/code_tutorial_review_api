@@ -1,8 +1,5 @@
 class Tutorial < ActiveRecord::Base
-  validates :user, presence: true
-  validates :title, presence: true
-  validates :description, presence: true
-  validates :link, presence: true
+  validates_presence_of :user, :title, :link, :description
 
 
 

@@ -1,5 +1,5 @@
 class TutorialsController < ApplicationController
-  before_action :set_tutorial, only: [:show, :edit, :update, :destroy]
+  before_action :set_tutorial, only: [ :show, :edit, :update, :destroy]
 
   # GET /tutorials
   # GET /tutorials.json
