@@ -30,11 +30,13 @@ RSpec.describe TutorialsController, type: :controller do
     end
 
     context "when logged in" do
-      login_user
 
       it "assigns all tutorials to @tutorials" do
+        user = FactoryGirl.create(:user)
+        login_as(user, :scope => :user)
+        tuto = FactoryGirl.create(:tutorial, user: user)
         get :index
-        expect(assigns(:tutorials)).to eq([valid_tutorial])
+        expect(assigns(:tutorials)).to eq([tuto])
       end
     end
   end
