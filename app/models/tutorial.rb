@@ -4,6 +4,8 @@ class Tutorial < ActiveRecord::Base
   validates :description, presence: true
   validates :link, presence: true
 
+
+
   belongs_to :user
   has_many :reviews
 end
