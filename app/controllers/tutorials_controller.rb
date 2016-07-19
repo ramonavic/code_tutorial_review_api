@@ -27,7 +27,7 @@ class TutorialsController < ApplicationController
     @tutorial = Tutorial.new(tutorial_params)
 
     if @tutorial.save
-      format.json { render :show, status: :created, location: @tutorial }
+      json { render :show, status: :created, location: @todo  }
     else
       format.json { render json: @tutorial.errors, status: :unprocessable_entity }
     end
@@ -38,6 +38,7 @@ class TutorialsController < ApplicationController
   def update
     if @tutorial.update(tutorial_params)
       format.json { render :show, status: :ok, location: @tutorial }
+
     else
       format.json { render json: @tutorial.errors, status: :unprocessable_entity }
     end
@@ -59,6 +60,6 @@ class TutorialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutorial_params
-      params.fetch(:tutorial, {})
+      params.require(:tutorial).permit(:title, :description, :link)
     end
 end

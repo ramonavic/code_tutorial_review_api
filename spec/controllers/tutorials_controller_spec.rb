@@ -33,9 +33,12 @@ RSpec.describe TutorialsController, type: :controller do
       login_user
 
       it "assigns all tutorials to @tutorials" do
-        get :index
+        get :index, format: :json
 
         expect(assigns(:tutorials)).to eq([valid_tutorial])
+        expect(response).to be_success
+        expect(response.content_type).to eq "application/json"
+
       end
     end
   end
@@ -51,12 +54,29 @@ RSpec.describe TutorialsController, type: :controller do
       login_user
 
       it "assigns the requested tutorial as @tutorial" do
-        get :show, {id: valid_tutorial.to_param}
+        get :show, {id: valid_tutorial.to_param}, format: :json
         expect(assigns(:tutorial)).to eq(valid_tutorial)
+        expect(response).to be_success
       end
     end
+  end
 
+    describe "POST #create" do
+      it "doesn't a user to post when not logged in" do
+        post :create, {id: valid_tutorial.to_param}, format: :json
+        expect(response).to redirect_to new_user_session_path
+      end
 
+    context "when logged in" do
+      login_user
+
+      it "creates the requested tutorial as @tutorial" do
+        post :create,  {tutorial: {id: valid_tutorial.to_param, title: "titel", description: "description", link: "www.linkelinks.nl", user: user} }, format: :json
+        expect(response).to have_http_status(:created)
+        expect(response.content_type).to eq "application/json"
+
+      end
+    end
   end
 
 
