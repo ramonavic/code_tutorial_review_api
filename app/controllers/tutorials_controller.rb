@@ -26,28 +26,20 @@ class TutorialsController < ApplicationController
   def create
     @tutorial = Tutorial.new(tutorial_params)
 
-    respond_to do |format|
-      if @tutorial.save
-        format.html { redirect_to @tutorial, notice: 'Tutorial was successfully created.' }
-        format.json { render :show, status: :created, location: @tutorial }
-      else
-        format.html { render :new }
-        format.json { render json: @tutorial.errors, status: :unprocessable_entity }
-      end
+    if @tutorial.save
+      format.json { render :show, status: :created, location: @tutorial }
+    else
+      format.json { render json: @tutorial.errors, status: :unprocessable_entity }
     end
   end
 
   # PATCH/PUT /tutorials/1
   # PATCH/PUT /tutorials/1.json
   def update
-    respond_to do |format|
-      if @tutorial.update(tutorial_params)
-        format.html { redirect_to @tutorial, notice: 'Tutorial was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tutorial }
-      else
-        format.html { render :edit }
-        format.json { render json: @tutorial.errors, status: :unprocessable_entity }
-      end
+    if @tutorial.update(tutorial_params)
+      format.json { render :show, status: :ok, location: @tutorial }
+    else
+      format.json { render json: @tutorial.errors, status: :unprocessable_entity }
     end
   end
 
@@ -55,11 +47,9 @@ class TutorialsController < ApplicationController
   # DELETE /tutorials/1.json
   def destroy
     @tutorial.destroy
-    respond_to do |format|
-      format.html { redirect_to tutorials_url, notice: 'Tutorial was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    format.json { head :no_content }
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
