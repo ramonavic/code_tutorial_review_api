@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'devise', '~> 3.5'
-gem 'factory_girl_rails', :require => false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
