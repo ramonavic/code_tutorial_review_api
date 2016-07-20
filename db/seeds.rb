@@ -9,3 +9,6 @@
 frank = User.create( email: 'frank@ex.com', password: 'abcd1234' )
 alice = User.create( email: 'alice@ex.com', password: 'abcd1234' )
 anton = User.create( email: 'anton@ex.com', password: 'abcd1234' )
+
+Tutorial.create(title: "React 1, 2, 3", description: "This tutorial shows you the basics of React", link: "www.react.io")
+Tutorial.create(title: "Rails Thrills", description: "This is an advanced tutorial about the hard parts of Rails", link: "www.rails.io")
