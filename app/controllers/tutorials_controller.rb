@@ -1,4 +1,5 @@
 class TutorialsController < ApplicationController
+
   respond_to :json
 
   # GET /tutorials
@@ -25,11 +26,8 @@ class TutorialsController < ApplicationController
   # POST /tutorials.json
   def create
     @tutorial = Tutorial.new(tutorial_params)
-    if @tutorial.save
-         format.json { render :show, status: :created, location: @tutorial  }
-       else
-         format.json { render json: @tutorial.errors, status: :unprocessable_entity }
-    end
+    @tutorial.save
+    render json: @tutorials
   end
 
   # PATCH/PUT /tutorials/1
