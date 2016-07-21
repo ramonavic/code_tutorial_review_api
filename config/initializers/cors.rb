@@ -5,7 +5,7 @@ class TutorialReviewApi::Application
 
       resource '/cors',
         headers: :any,
-        methods: [:post],
+        methods: :sny,
         credentials: true,
         max_age: 0
 
