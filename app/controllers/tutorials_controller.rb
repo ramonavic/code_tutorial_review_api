@@ -1,5 +1,6 @@
 class TutorialsController < ApplicationController
   before_action :set_tutorial, only: [ :show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /tutorials
   # GET /tutorials.json
