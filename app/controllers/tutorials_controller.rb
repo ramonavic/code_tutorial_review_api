@@ -26,12 +26,8 @@ class TutorialsController < ApplicationController
   # POST /tutorials.json
   def create
     @tutorial = Tutorial.new(tutorial_params)
-
-    if @tutorial.save
-      json { render :show, status: :created, location: @todo  }
-    else
-      format.json { render json: @tutorial.errors, status: :unprocessable_entity }
-    end
+    @tutorial.save
+  
   end
 
   # PATCH/PUT /tutorials/1
