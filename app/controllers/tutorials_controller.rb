@@ -13,21 +13,18 @@ class TutorialsController < ApplicationController
   def show
   end
 
-  # GET /tutorials/new
-  def new
-    @tutorial = Tutorial.new
-  end
 
-  # GET /tutorials/1/edit
-  def edit
-  end
 
   # POST /tutorials
   # POST /tutorials.json
   def create
     @tutorial = Tutorial.new(tutorial_params)
-    @tutorial.save
-    render json: @tutorial
+
+    if @tutorial.save
+      render json: { tutorial: @tutorial, location: tutorial_url(@tutorial) }, status: :created # 201
+    else
+      render json: { errors: @tutorial.errors }, status: :unprocessable_entity # 422
+    end
   end
 
   # PATCH/PUT /tutorials/1
@@ -50,10 +47,9 @@ class TutorialsController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutorial_params
-      params.require(:tutorial).permit(:title, :description, :link, :user)
+      params.require(:tutorial).permit(:title, :description, :link)
     end
 end
