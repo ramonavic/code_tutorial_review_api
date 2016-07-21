@@ -62,7 +62,7 @@ RSpec.describe TutorialsController, type: :controller do
   end
 
     describe "POST #create" do
-      it "doesn't a user to post when not logged in" do
+      it "doesn't allow a user to post when not logged in" do
         post :create, {id: valid_tutorial.to_param}, format: :json
         expect(response).to redirect_to new_user_session_path
       end
@@ -71,8 +71,8 @@ RSpec.describe TutorialsController, type: :controller do
       login_user
 
       it "creates the requested tutorial as @tutorial" do
-        post :create,  {tutorial: {id: valid_tutorial.to_param, title: "titel", description: "description", link: "www.linkelinks.nl", user: user} }, format: :json
-        expect(response).to have_http_status(:created)
+        post :create,  {tutorial: {id: valid_tutorial.to_param, title: "titel", description: "description", link: "www.linkelinks.nl"} }, format: :json
+        expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq "application/json"
 
       end

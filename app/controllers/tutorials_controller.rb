@@ -19,7 +19,7 @@ class TutorialsController < ApplicationController
     @tutorial = Tutorial.new(tutorial_params)
 
     if @tutorial.save
-      render json: @tutorial
+      render json: @tutorial, status: :created
     else
       render json: @tutorial
     end
