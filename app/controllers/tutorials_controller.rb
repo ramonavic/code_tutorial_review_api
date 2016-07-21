@@ -2,17 +2,15 @@ class TutorialsController < ApplicationController
 
   respond_to :json
 
-  # GET /tutorials
-  # GET /tutorials.json
   def index
     @tutorials = Tutorial.all
   end
 
-  # GET /tutorials/1
-  # GET /tutorials/1.json
-  def show
-  end
 
+  def show
+    @tutorial = Tutorial.find(params[:id])
+    render json: {tutorial: @tutorial}
+  end
 
 
   # POST /tutorials
@@ -23,7 +21,7 @@ class TutorialsController < ApplicationController
     if @tutorial.save
       render json: @tutorial
     else
-      render json: @tutorial 
+      render json: @tutorial
     end
   end
 
