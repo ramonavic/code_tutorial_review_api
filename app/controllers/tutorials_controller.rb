@@ -27,7 +27,7 @@ class TutorialsController < ApplicationController
   def create
     @tutorial = Tutorial.new(tutorial_params)
     @tutorial.save
-    render json: @tutorials
+    render json: @tutorial
   end
 
   # PATCH/PUT /tutorials/1
