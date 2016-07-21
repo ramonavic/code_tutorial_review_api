@@ -1,5 +1,4 @@
 class TutorialsController < ApplicationController
-  before_action :set_tutorial, only: [ :show, :edit, :update, :destroy]
   respond_to :json
 
   # GET /tutorials
@@ -27,7 +26,7 @@ class TutorialsController < ApplicationController
   def create
     @tutorial = Tutorial.new(tutorial_params)
     @tutorial.save
-  
+    render json: @tutorial
   end
 
   # PATCH/PUT /tutorials/1
@@ -51,12 +50,9 @@ class TutorialsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_tutorial
-      @tutorial = Tutorial.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutorial_params
-      params.require(:tutorial).permit(:title, :description, :link)
+      params.require(:tutorial).permit(:title, :description, :link, :user)
     end
 end

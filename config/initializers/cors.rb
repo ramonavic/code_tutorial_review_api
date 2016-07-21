@@ -5,13 +5,13 @@ class TutorialReviewApi::Application
 
       resource '/cors',
         headers: :any,
-        methods: [:post],
+        methods: :sny,
         credentials: true,
         max_age: 0
 
       resource '*',
         headers: :any,
-        methods: [:get, :delete, :put, :patch, :options, :head],
+        methods: :any,
         max_age: 0
     end
   end
