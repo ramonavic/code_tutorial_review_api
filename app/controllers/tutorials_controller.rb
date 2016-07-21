@@ -21,6 +21,7 @@ class TutorialsController < ApplicationController
     @tutorial = Tutorial.new(tutorial_params)
     # if user = User.authenticate(params[:username], params[:password])
       # session[:current_user_id] = user.id
+    end
     if @tutorial.save
       render json: { tutorial: @tutorial, location: tutorial_url(@tutorial) }, status: :created # 201
     else
