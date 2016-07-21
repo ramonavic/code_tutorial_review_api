@@ -19,7 +19,9 @@ class TutorialsController < ApplicationController
   # POST /tutorials.json
   def create
     @tutorial = Tutorial.new(tutorial_params)
-
+    if user = User.authenticate(params[:username], params[:password])
+      session[:current_user_id] = user.id
+    end
     if @tutorial.save
       render json: { tutorial: @tutorial, location: tutorial_url(@tutorial) }, status: :created # 201
     else
@@ -50,6 +52,6 @@ class TutorialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutorial_params
-      params.require(:tutorial).permit(:title, :description, :link, :user)
+      params.require(:tutorial).permit(:title, :description, :link)
     end
 end
