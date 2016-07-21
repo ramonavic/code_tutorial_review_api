@@ -21,9 +21,9 @@ class TutorialsController < ApplicationController
     @tutorial = Tutorial.new(tutorial_params)
 
     if @tutorial.save
-      render json: { tutorial: @tutorial, location: tutorial_url(@tutorial) }, status: :created # 201
+      render json: @tutorial
     else
-      render json: { errors: @tutorial.errors }, status: :unprocessable_entity # 422
+      render json: @tutorial 
     end
   end
 
