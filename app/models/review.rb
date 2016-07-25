@@ -3,6 +3,7 @@ class Review < ActiveRecord::Base
   belongs_to :tutorial
   validates :user, presence: true
   validates :rating, presence: true
+  validates :tutorial, presence: true
   validates_uniqueness_of :rating, scope: :user_id
 
 

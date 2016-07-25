@@ -9,6 +9,7 @@ RSpec.describe Review, type: :model do
 
   describe "validations" do
     it { should validate_presence_of(:user) }
+    it { should validate_presence_of(:tutorial) }
     it { should validate_presence_of(:rating) }
 
   end
