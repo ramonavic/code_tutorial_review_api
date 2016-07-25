@@ -14,9 +14,9 @@ react = Tutorial.create(title: "React 1, 2, 3", description: "Adding authenticat
 rails = Tutorial.create(title: "Rails Thrills", description: "This is an advanced tutorial about the hard parts of Rails", link: "https://auth0.com/blog/2015/04/09/adding-authentication-to-your-react-flux-app/", user_id: alice.id)
 
 
-Review.create(user_id: frank.id, tutorial_id: react, rating: 5)
-Review.create(user_id: alice.id, tutorial_id: react, rating: 4)
-Review.create(user_id: anton.id, tutorial_id: react, rating: 3)
+Review.create(user_id: frank.id, tutorial_id: react.id, rating: 5)
+Review.create(user_id: alice.id, tutorial_id: react.id, rating: 4)
+Review.create(user_id: anton.id, tutorial_id: react.id, rating: 3)
 
 Review.create(user_id: frank.id, tutorial_id: rails.id, rating: 3)
 Review.create(user_id: anton.id, tutorial_id: rails.id, rating: 3)
