@@ -17,6 +17,7 @@ class TutorialsController < ApplicationController
   # POST /tutorials.json
   def create
     @tutorial = Tutorial.new(tutorial_params)
+    @tutorial.user = current_user
 
     if @tutorial.save
       render json: @tutorial, status: :created

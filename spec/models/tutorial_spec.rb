@@ -17,4 +17,5 @@ RSpec.describe Tutorial, type: :model do
 
 
 
+
 end
