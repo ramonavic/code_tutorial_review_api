@@ -4,6 +4,7 @@ class TutorialsController < ApplicationController
 
   def index
     @tutorials = Tutorial.all
+    @reviews = Review.all
   end
 
 
