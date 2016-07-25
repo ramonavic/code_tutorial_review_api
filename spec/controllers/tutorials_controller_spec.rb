@@ -72,7 +72,7 @@ RSpec.describe TutorialsController, type: :controller do
 
       it "creates the requested tutorial as @tutorial" do
         post :create,  {tutorial: {id: valid_tutorial.to_param, title: "titel", description: "description", link: "www.linkelinks.nl"} }, format: :json
-        expect(response).to have_http_status(:ok)
+        expect(response).to have_http_status(:created)
         expect(response.content_type).to eq "application/json"
 
       end
