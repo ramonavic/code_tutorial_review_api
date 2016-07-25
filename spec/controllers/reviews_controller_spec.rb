@@ -37,7 +37,7 @@ RSpec.describe ReviewsController, type: :controller do
 
         expect(assigns(:reviews)).to eq([valid_review])
         expect(response).to be_success
-        expect(reponse.content_type).to eq "application/json"
+        expect(response.content_type).to eq "application/json"
       end
 
     end
