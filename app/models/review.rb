@@ -6,5 +6,5 @@ class Review < ActiveRecord::Base
   validates :tutorial, presence: true
   validates_uniqueness_of :rating, scope: :user_id
 
-
+  accepts_nested_attributes_for :tutorial, :user
 end

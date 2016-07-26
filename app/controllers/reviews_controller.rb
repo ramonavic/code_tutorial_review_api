@@ -11,11 +11,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review.tutorial_id = Tutorial.find(params[:tutorial_id])
-    @review.user = current_user
-    @review = Review.new(tutorial: tutorial, user: user)
+    @review = Review.find(review_params)
 
-    if @tutorial.save
+    @review.user = current_user
+
+    @review = @tutorial.reviews.build(params[:tutorial])
+
+    if @review.save
       render json: @review, status: :created
     else
       render json: @review
@@ -27,8 +29,13 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :user, :tutorial)
+    params.permit(:review, :rating, :user, :tutorial_)
   end
 
+  protected
+
+  def find_tutorial
+    @tutorial = Tutorial.find(params[:tutorial_id])
+  end
 
 end
