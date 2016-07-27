@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user = current_user
-    @review.tutorial_id = Tutorial.find(params[:tutorial_id])
+    @tutorial = Tutorial.find(session[:tutorial_id])
 
     if @review.save
       render json: @review, status: :created
