@@ -2,7 +2,7 @@
 
 ##INFO
 
-A Restful API created with Rails that collects reviews of code tutorials. The API is made following the TDD principles. User needs to be authenticated. An example of the backend can be found [here] (https://tutorial-api.herokuapp.com/). The front end is created with React ([Github page]) (https://github.com/ramonavic/frontend_tutorial_reviews). 
+A Restful API created with Rails that collects reviews of code tutorials. The API is made following the TDD principles. User needs to be authenticated. An example of the backend can be found [here] (https://tutorial-api.herokuapp.com/). The front end is created with React. You can find the [Github page here](https://github.com/ramonavic/frontend_tutorial_reviews). 
 
 ##TODO: 
 
