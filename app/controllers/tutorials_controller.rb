@@ -14,8 +14,6 @@ class TutorialsController < ApplicationController
   end
 
 
-  # POST /tutorials
-  # POST /tutorials.json
   def create
     @tutorial = Tutorial.new(tutorial_params)
     @tutorial.user = current_user
@@ -27,8 +25,7 @@ class TutorialsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tutorials/1
-  # PATCH/PUT /tutorials/1.json
+
   def update
     if @tutorial.update(tutorial_params)
       format.json { render :show, status: :ok, location: @tutorial }
@@ -38,8 +35,7 @@ class TutorialsController < ApplicationController
     end
   end
 
-  # DELETE /tutorials/1
-  # DELETE /tutorials/1.json
+
   def destroy
     @tutorial.destroy
     format.json { head :no_content }
@@ -48,7 +44,6 @@ class TutorialsController < ApplicationController
 
   private
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def tutorial_params
       params.require(:tutorial).permit(:title, :description, :link, :user)
     end
