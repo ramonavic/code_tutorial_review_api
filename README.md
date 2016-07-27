@@ -1,27 +1,27 @@
 # Code Tutorial Review API
 
-##INFO
+###INFO
 
 A Restful API created with Rails that collects reviews of code tutorials. The API is made following the TDD principles. User needs to be authenticated. An example of the backend can be found [here] (https://tutorial-api.herokuapp.com/). The front end is created with React. You can find the [Github page here](https://github.com/ramonavic/frontend_tutorial_reviews). 
 
-##TODO: 
+###TODO: 
 
 - User roles
 - Calculate average ratings
 - Delete function + specs
 
-##SETUP
+###SETUP
 
 In order to use this we recommend to download both the front end and back end packages. 
 After downloading the packages, type the following in your terminal: 
 
-###Back end
+####Back end
 ```
 bundle install
 rails s -p 3001
 ```
 
-###Front end
+####Front end
 ```
 npm install
 npm start
