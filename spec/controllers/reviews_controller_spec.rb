@@ -7,6 +7,7 @@ RSpec.describe ReviewsController, type: :controller do
 
   let (:valid_attributes) do
     {
+      id: 25,
       rating: 5,
       user: user,
       tutorial: tutorial
@@ -70,7 +71,7 @@ RSpec.describe ReviewsController, type: :controller do
 
       it "posts the created review as @review" do
 
-      post :create, {review: {id: valid_review.to_param}, format: :json}
+      post :create, review: {id:  valid_review.to_param}, format: :json
       expect(response).to have_http_status(:created)
       expect(response.content_type).to eq "application/json"
 
