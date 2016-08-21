@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'cancancan'
+
+
 gem 'devise', '~> 3.5'
 
 gem 'rails_12factor', group: :production

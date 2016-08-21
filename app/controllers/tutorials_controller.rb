@@ -1,10 +1,15 @@
 class TutorialsController < ApplicationController
+  load_and_authorize_resource
 
   respond_to :json
 
   def index
     @tutorials = Tutorial.all
     @reviews = Review.all
+
+    authorize! :read, @tutorials
+    authorize! :read, @reviews
+
   end
 
 
