@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.user = current_user
+    @review.user_id = current_user
     @review.tutorial_id = params[:review][:tutorial_id]
 
     if @review.save
