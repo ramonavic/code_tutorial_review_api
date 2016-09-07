@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user
     @review.tutorial_id = params[:review][:tutorial_id]
+    @review.id = params[:review_id]
 
     if @review.save
       render json: @review, status: :created
