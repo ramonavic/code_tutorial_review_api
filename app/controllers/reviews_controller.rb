@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.tutorial_id = params[:review][:tutorial_id]
 
+
     if @review.save
       render json: @review, status: :created
     else
@@ -28,7 +29,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :user, :tutorial_id)
+    params.require(:review).permit(:id, :rating, :user, :tutorial_id)
   end
 
 
